@@ -31,11 +31,9 @@ SET(URDFPARSER_LIB urdfparser)
 
 SET_PROPERTY(TARGET urdfparser PROPERTY POSITION_INDEPENDENT_CODE ON)
 
-IF(URDF_BUILD_TEST)
-  FIND_PACKAGE(Catch2 REQUIRED)
+IF(URDF_BUILD_TEST) 
+  include_directories(".")  # include catch.hpp
   ADD_EXECUTABLE(test_library test/parse_simple.cpp)
-  TARGET_LINK_LIBRARIES(test_library
-    Catch2::Catch2
-    urdfparser
-  )
+  TARGET_LINK_LIBRARIES(test_library urdfparser)
+
 ENDIF(URDF_BUILD_TEST)
