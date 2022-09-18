@@ -28,6 +28,7 @@ namespace urdf {
 		std::shared_ptr<Joint> getJoint(const string& name);
 		std::shared_ptr<Material> getMaterial(const string& name);
 
+		void getJoints(vector<std::shared_ptr<Joint>>& jointlist) const;
 		void getLinks(vector<std::shared_ptr<Link>>& linklist) const;
 
 		void clear() {

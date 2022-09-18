@@ -30,6 +30,12 @@ std::shared_ptr<Material> UrdfModel::getMaterial(const string& name) {
 	}
 }
 
+void UrdfModel::getJoints(vector<std::shared_ptr<Joint>>& jointlist) const {
+	for (auto joint = joint_map.begin(); joint != joint_map.end(); joint++) {
+		jointlist.push_back(joint->second);
+	}
+}
+
 void UrdfModel::getLinks(vector<std::shared_ptr<Link>>& linklist) const {
 	for (auto link = link_map.begin(); link != link_map.end(); link++) {
 		linklist.push_back(link->second);
