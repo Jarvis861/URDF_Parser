@@ -31,9 +31,13 @@ SET(URDFPARSER_LIB urdfparser)
 
 SET_PROPERTY(TARGET urdfparser PROPERTY POSITION_INDEPENDENT_CODE ON)
 
+include_directories(".")  # include catch.hpp
 IF(URDF_BUILD_TEST) 
-  include_directories(".")  # include catch.hpp
-  ADD_EXECUTABLE(test_library test/parse_simple.cpp)
-  TARGET_LINK_LIBRARIES(test_library urdfparser)
+  ADD_EXECUTABLE(parse_simple test/parse_simple.cpp)
+  TARGET_LINK_LIBRARIES(parse_simple urdfparser)
+  
+ELSE(URDF_BUILD_TEST)
+  ADD_EXECUTABLE(load_file test/load_file.cpp)
+  TARGET_LINK_LIBRARIES(load_file urdfparser)
 
 ENDIF(URDF_BUILD_TEST)

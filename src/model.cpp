@@ -106,11 +106,10 @@ void UrdfModel::findRoot(const map<string, string> &parent_link_tree) {
 	}
 }
 
-std::shared_ptr<UrdfModel> UrdfModel::fromUrdfStr(const std::string& xml_string) {
+// 2 methods to import file
+std::shared_ptr<UrdfModel> UrdfModel::fromUrdf(TiXmlDocument xml_doc) {
 	std::shared_ptr<UrdfModel> model = std::make_shared<UrdfModel>();
 
-	TiXmlDocument xml_doc;
-	xml_doc.Parse(xml_string.c_str());
 	if (xml_doc.Error()) {
 		std::string error_msg = xml_doc.ErrorDesc();
 		xml_doc.ClearError();
@@ -199,5 +198,21 @@ std::shared_ptr<UrdfModel> UrdfModel::fromUrdfStr(const std::string& xml_string)
 	model->initLinkTree(parent_link_tree);
 	model->findRoot(parent_link_tree);
 
+	return model;
+}
+
+std::shared_ptr<UrdfModel> UrdfModel::fromUrdfFile(const char* filename) {
+	TiXmlDocument _xml_doc;
+	_xml_doc.LoadFile(filename);
+
+	std::shared_ptr<UrdfModel> model = fromUrdf(_xml_doc);
+	return model;
+}
+
+std::shared_ptr<UrdfModel> UrdfModel::fromUrdfStr(const std::string& xml_string) {
+	TiXmlDocument _xml_doc;
+	_xml_doc.Parse(xml_string.c_str());
+
+	std::shared_ptr<UrdfModel> model = fromUrdf(_xml_doc);
 	return model;
 }

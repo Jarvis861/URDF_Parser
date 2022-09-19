@@ -49,6 +49,8 @@ namespace urdf {
 
 		UrdfModel() { clear(); }
 
+		static std::shared_ptr<UrdfModel> fromUrdf(TiXmlDocument xml_doc);
+		static std::shared_ptr<UrdfModel> fromUrdfFile(const char* filename);
 		static std::shared_ptr<UrdfModel> fromUrdfStr(const std::string& xml_string);
 	};
 
