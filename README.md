@@ -32,8 +32,11 @@ cmake .. -DURDF_BUILD_TEST=1
 make all
 ```
 
-**4)** Run test file (step 2 is necessary)
+**4)** Run test file (the step including Catch2 is necessary)
 ```
-./test_library
+./load_file
+```
+```
+./parse_simple
 ```
 
