@@ -1,10 +1,10 @@
 #ifndef URDF_GEOMETRY_H
 #define URDF_GEOMETRY_H
 
-#include "tinyxml/txml.h"
+#include "../tinyxml/txml.h"
 
-#include "urdf/common.h"
-#include "urdf/exception.h"
+#include "common.h"
+#include "exception.h"
 
 namespace urdf {
 

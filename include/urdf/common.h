@@ -8,10 +8,10 @@
 #define M_PI 3.141592538
 #endif //M_PI
 
-#include "tinyxml/txml.h"
+#include "../tinyxml/txml.h"
 #include <memory>
 
-#include "urdf/exception.h"
+#include "exception.h"
 
 using namespace std;
 

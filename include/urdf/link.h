@@ -6,9 +6,9 @@
 #include <map>
 #include <optional>
 
-#include "urdf/joint.h"
-#include "urdf/geometry.h"
-#include "urdf/common.h"
+#include "joint.h"
+#include "geometry.h"
+#include "common.h"
 
 namespace urdf{
 	struct Material {

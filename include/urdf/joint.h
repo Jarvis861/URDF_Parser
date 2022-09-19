@@ -4,9 +4,9 @@
 #include <string>
 #include <vector>
 #include <optional>
-#include "tinyxml/txml.h"
+#include "../tinyxml/txml.h"
 
-#include "urdf/common.h"
+#include "common.h"
 
 namespace urdf{
 	struct JointDynamics {

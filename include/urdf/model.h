@@ -4,10 +4,10 @@
 #include <string>
 #include <map>
 
-#include "urdf/common.h"
-#include "urdf/exception.h"
-#include "urdf/link.h"
-#include "urdf/joint.h"
+#include "common.h"
+#include "exception.h"
+#include "link.h"
+#include "joint.h"
 
 using namespace std;
 
