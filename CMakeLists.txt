@@ -23,7 +23,7 @@ SET( URDF_SRCS
   src/tinyxmlparser.cpp
 )
 
-ADD_LIBRARY( urdfparser STATIC
+ADD_LIBRARY( urdfparser SHARED
   ${URDF_SRCS}
 )
 

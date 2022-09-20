@@ -86,7 +86,7 @@ TEST_CASE ("load a urdf file", "[UrdfFile]") {
 
 
     #if 1
-    model->getLinks(_links);    // wrong !!!!
+    model->getLinks(_links);    // wrong sequence !!!
     #else
     auto link_0 = model->getLink("world");          _links.push_back(link_0);
     auto link_1 = model->getLink("base_link");      _links.push_back(link_1);
