@@ -64,27 +64,38 @@ TEST_CASE ("load a urdf file", "[UrdfFile]") {
     CHECK(joint->parent_to_joint_transform.position.y == 0.3);
     CHECK(joint->parent_to_joint_transform.position.z == 0.);
 
-
-
-    // =============== links and joints =============== 
-    vector<std::shared_ptr<Joint>> _joints;
-    vector<std::shared_ptr<Link>> _links;
-
-    model->getJoints(_joints);  // joint {i} in {i-1}
-
-    // joint 2
-    CHECK(_joints[2] == model->getJoint("joint_2"));
-    CHECK(_joints[2]->parent_link_name == "shoulder_link");
-    CHECK(_joints[2]->child_link_name == "arm_link");
-
-    // joint 6
-    CHECK(_joints[6] == model->getJoint("joint_6"));
-
     // world
     REQUIRE( model->getRoot() != nullptr );
     CHECK(model->getRoot()->name == "world");
 
 
+
+    // =============== links and joints =============== 
+    #if 1
+    vector<std::shared_ptr<Joint>> _joints;
+    model->getJoints(_joints);    // wrong sequence !!!
+    #else
+    std::shared_ptr<Joint> _joints[8];
+    _joints[0] = model->getJoint("joint_world");
+    _joints[1] = model->getJoint("joint_1");
+    _joints[2] = model->getJoint("joint_2");
+    _joints[3] = model->getJoint("joint_3");
+    _joints[4] = model->getJoint("joint_4");
+    _joints[5] = model->getJoint("joint_5");
+    _joints[6] = model->getJoint("joint_6");
+    _joints[7] = model->getJoint("hand_tool_joint");
+    #endif
+    CHECK(_joints[7] == model->getJoint("joint_world"));
+    CHECK(_joints[1] == model->getJoint("joint_1"));
+    CHECK(_joints[2] == model->getJoint("joint_2"));
+    CHECK(_joints[3] == model->getJoint("joint_3"));
+    CHECK(_joints[4] == model->getJoint("joint_4"));
+    CHECK(_joints[5] == model->getJoint("joint_5"));
+    CHECK(_joints[6] == model->getJoint("joint_6"));
+    CHECK(_joints[0] == model->getJoint("hand_tool_joint"));
+
+
+    vector<std::shared_ptr<Link>> _links;
     #if 1
     model->getLinks(_links);    // wrong sequence !!!
     #else
