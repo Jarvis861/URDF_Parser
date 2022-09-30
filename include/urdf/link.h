@@ -47,8 +47,8 @@ namespace urdf{
 		}
 
 		Inertial() : mass(0.), ixx(0.), ixy(0.), ixz(0.), iyy(0.), iyz(0.), izz(0.) {}
-		Inertial(const Inertial& i) : origin(i.origin), ixx(i.ixx), ixy(i.ixy), ixz(i.ixz),
-                                  iyy(i.iyy), iyz(i.iyz), izz(i.izz), mass(i.mass) {}
+		Inertial(const Inertial& i) : origin(i.origin), mass(i.mass), ixx(i.ixx), ixy(i.ixy), ixz(i.ixz),
+                                  iyy(i.iyy), iyz(i.iyz), izz(i.izz) {}
 
 		static Inertial fromXml(TiXmlElement* xml);
 	};

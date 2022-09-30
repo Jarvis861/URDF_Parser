@@ -34,7 +34,7 @@ namespace urdf {
 				radius = 0;
 			}
 
-			Sphere() : radius(0.), Geometry(GeometryType::SPHERE) {}
+			Sphere() : Geometry(GeometryType::SPHERE), radius(0.) {}
 
 			static std::shared_ptr<Sphere> fromXml(TiXmlElement* xml);
 	};
@@ -62,7 +62,7 @@ namespace urdf {
 				radius = 0;
 			}
 
-			Cylinder() : length(0.), radius(0.), Geometry(GeometryType::CYLINDER) {}
+			Cylinder() : Geometry(GeometryType::CYLINDER), length(0.), radius(0.) {}
 
 			static std::shared_ptr<Cylinder> fromXml(TiXmlElement* xml);
 	};
@@ -77,7 +77,7 @@ namespace urdf {
                 radius = 0;
             }
             
-            Capsule() : length(0.), radius(0.), Geometry(GeometryType::CAPSULE) {}
+            Capsule() : Geometry(GeometryType::CAPSULE), length(0.), radius(0.) {}
             
             static std::shared_ptr<Capsule> fromXml(TiXmlElement* xml);
     };
@@ -95,7 +95,7 @@ namespace urdf {
 				scale.z = 1;
 			}
 
-			Mesh() : scale(Vector3(1., 1., 1.)), Geometry(GeometryType::MESH) {}
+			Mesh() : Geometry(GeometryType::MESH), scale(Vector3(1., 1., 1.)) {}
 
 			static std::shared_ptr<Mesh> fromXml(TiXmlElement* xml);
 	};

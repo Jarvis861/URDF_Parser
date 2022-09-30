@@ -159,7 +159,7 @@ Color Color::fromColorStr(const std::string &vector_str) {
 	std::vector<float> values;
 
 	boost::split(pieces, vector_str, boost::is_any_of(" "));
-	for (int i = 0; i < pieces.size(); i++) {
+	for (unsigned int i = 0; i < pieces.size(); i++) {
 		if (!pieces[i].empty()) {
 			try {
 				values.push_back(boost::lexical_cast<double>(pieces[i].c_str()));
