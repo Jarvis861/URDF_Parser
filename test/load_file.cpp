@@ -12,7 +12,7 @@ using namespace urdf;
 
 TEST_CASE ("load a urdf file", "[UrdfFile]") {
     TiXmlDocument doc;
-    const char* filename = THIS_COM "arm_v2.urdf";
+    const char* filename = THIS_COM "arm_v4.urdf";
 
     // REQUIRE_NOTHROW(doc.LoadFile(filename));     // simple method
 
@@ -31,7 +31,7 @@ TEST_CASE ("load a urdf file", "[UrdfFile]") {
     auto inertial = &link->inertial.value();
     CHECK(inertial != nullptr);
     CHECK(inertial->mass == 0.61357);
-    CHECK(inertial->iyy == 0.00031);
+    CHECK(inertial->iyy == 0.00036967438);
 
     printf("%f %f %f %f\n", inertial->origin.rotation.x,
         inertial->origin.rotation.y,
